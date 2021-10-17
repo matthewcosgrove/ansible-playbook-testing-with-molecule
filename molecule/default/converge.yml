@@ -1,7 +1,4 @@
 ---
 - name: Converge
   hosts: all
-  tasks:
-    - name: "Include ansible-playbook-testing-with-molecule"
-      include_role:
-        name: "ansible-playbook-testing-with-molecule"
+- import_playbook: ../../playbook.yml
