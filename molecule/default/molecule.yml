@@ -8,8 +8,27 @@ driver:
     ansible_connection_options:
       ansible_connection: local
 platforms:
-  - name: instance
+  - name: notapplicable
 provisioner:
   name: ansible
+  inventory:
+    links:
+      hosts: inventory.yml
+  config_options:
+    defaults:
+      gathering: smart
+      fact_caching: jsonfile
+      fact_caching_connection: facts_dir
+      fact_caching_timeout: 7200
 verifier:
   name: ansible
+scenario: # Override scenario sequences defined in https://molecule.readthedocs.io/en/latest/configuration.html#root-scenario
+  converge_sequence:
+    - converge
+  test_sequence:
+    - lint
+    - syntax
+    - prepare
+    - converge
+    - verify
+    - cleanup

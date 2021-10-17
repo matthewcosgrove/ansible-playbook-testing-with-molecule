@@ -1,0 +1,9 @@
+---
+- name: Destroy
+  hosts: jsonplaceholderapiusers
+  connection: local
+  gather_facts: false
+  tasks:
+    - set_fact:
+        cacheable: yes
+        this_is_my_fact: "cleaned up"

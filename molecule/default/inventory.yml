@@ -1,0 +1,5 @@
+---
+jsonplaceholderapiusers:
+  hosts:
+    user-2:
+      user_id: 2

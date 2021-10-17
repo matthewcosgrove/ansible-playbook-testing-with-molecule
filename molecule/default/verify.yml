@@ -1,10 +1,9 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
 - name: Verify
-  hosts: all
+  hosts: jsonplaceholderapiusers
+  connection: local
   gather_facts: false
   tasks:
-  - name: Example assertion
+  - name: Assert - expected fact set
     assert:
-      that: true
+      that: this_is_my_fact == "hello"
